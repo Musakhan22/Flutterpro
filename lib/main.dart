@@ -1,4 +1,5 @@
 import 'package:appplusidea/screens/homeScreen.dart';
+import 'package:appplusidea/screens/widget_tree.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,9 +12,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(
+        seedColor: Colors.teal,
+        brightness: Brightness.dark,
+      )),
       title: 'Flutter BEST APP',
-      home: Homescreen(),
+      home: WidgetTree(),
     );
   }
 }
