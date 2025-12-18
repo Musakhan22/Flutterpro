@@ -1,4 +1,3 @@
-import 'package:appplusidea/screens/homeScreen.dart';
 import 'package:appplusidea/screens/widget_tree.dart';
 import 'package:flutter/material.dart';
 
@@ -18,8 +17,8 @@ class MyApp extends StatelessWidget {
         seedColor: Colors.teal,
         brightness: Brightness.dark,
       )),
-      title: 'Flutter BEST APP',
-      home: WidgetTree(),
+      title: 'Flutter APP',
+      home: const WidgetTree(),
     );
   }
 }
