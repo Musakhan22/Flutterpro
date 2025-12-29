@@ -9,18 +9,14 @@ class NavbarWidget extends StatefulWidget {
 }
 
 class _NavbarWidgetState extends State<NavbarWidget> {
-  int currentIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
       valueListenable: selectedPageNotifier,
-      builder: (context, value, child) => NavigationBar(
-        selectedIndex: currentIndex,
+      builder: (context, selectedpage, child) => NavigationBar(
+        selectedIndex: selectedpage,
         onDestinationSelected: (value) {
-          setState(() {
-            currentIndex = value;
-          });
+          selectedPageNotifier.value = value;
         },
         destinations: const [
           NavigationDestination(icon: Icon(Icons.home), label: 'Home'),

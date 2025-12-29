@@ -1,3 +1,4 @@
+import 'package:appplusidea/data/notifiers.dart';
 import 'package:appplusidea/screens/homeScreen.dart';
 import 'package:appplusidea/screens/profileScreen.dart';
 import 'package:appplusidea/widget/NavBar_widget.dart';
@@ -11,14 +12,17 @@ class WidgetTree extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'FLUTTER UI',
+        appBar: AppBar(
+          title: const Text(
+            'FLUTTER UI',
+          ),
+          centerTitle: true,
         ),
-        centerTitle: true,
-      ),
-      body: pages.elementAt(0),
-      bottomNavigationBar: NavbarWidget(),
-    );
+        body: ValueListenableBuilder(
+          valueListenable: selectedPageNotifier,
+          builder: (context, selectedpageindex, child) =>
+              Center(child: Text(selectedpageindex == 0 ? 'Home' : 'Profile')),
+        ),
+        bottomNavigationBar: NavbarWidget());
   }
 }
