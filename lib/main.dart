@@ -1,3 +1,4 @@
+import 'package:appplusidea/data/notifiers.dart';
 import 'package:appplusidea/screens/widget_tree.dart';
 import 'package:flutter/material.dart';
 
@@ -11,14 +12,18 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(
-        seedColor: Colors.teal,
-        brightness: Brightness.dark,
-      )),
-      title: 'Flutter APP',
-      home: const WidgetTree(),
-    );
+    return ValueListenableBuilder(
+        valueListenable: isDarkModeNotifier,
+        builder: (context, isdarkmode, child) {
+          return MaterialApp(
+            theme: ThemeData(
+                colorScheme: ColorScheme.fromSeed(
+              seedColor: Colors.teal,
+              brightness: isdarkmode ? Brightness.dark : Brightness.light,
+            )),
+            title: 'Flutter APP',
+            home: const WidgetTree(),
+          );
+        });
   }
 }
