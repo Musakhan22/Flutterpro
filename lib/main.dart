@@ -1,4 +1,5 @@
 import 'package:appplusidea/data/notifiers.dart';
+import 'package:appplusidea/screens/welcomeScreen.dart';
 import 'package:appplusidea/screens/widget_tree.dart';
 import 'package:flutter/material.dart';
 
@@ -16,13 +17,14 @@ class MyApp extends StatelessWidget {
         valueListenable: isDarkModeNotifier,
         builder: (context, isdarkmode, child) {
           return MaterialApp(
+            debugShowCheckedModeBanner: false,
             theme: ThemeData(
                 colorScheme: ColorScheme.fromSeed(
               seedColor: Colors.teal,
               brightness: isdarkmode ? Brightness.dark : Brightness.light,
             )),
             title: 'Flutter APP',
-            home: const WidgetTree(),
+            home: const Welcomescreen(),
           );
         });
   }
