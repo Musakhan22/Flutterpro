@@ -1,6 +1,6 @@
 import 'package:appplusidea/screens/widget_tree.dart';
-import 'package:appplusidea/widget/Hero_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class Welcomescreen extends StatelessWidget {
   const Welcomescreen({super.key});
@@ -13,7 +13,7 @@ class Welcomescreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            HeroWidget(),
+            Lottie.asset('asset/animations/Welcome.json'),
             OutlinedButton(
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
