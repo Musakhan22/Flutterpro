@@ -16,7 +16,7 @@ class HeroWidget extends StatelessWidget {
             child: Image.asset(
               'asset/images/bg-img.jpg',
               color: Colors.teal,
-              colorBlendMode: BlendMode.difference,
+              colorBlendMode: BlendMode.colorBurn,
             ),
           ),
         ),
@@ -24,7 +24,7 @@ class HeroWidget extends StatelessWidget {
           title,
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            fontSize: 20,
+            fontSize: 30,
           ),
         ),
       ],
