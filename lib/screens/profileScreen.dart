@@ -19,6 +19,7 @@ class _ProfilescreenState extends State<Profilescreen> {
       child: Column(
         children: [
           ListTile(
+            hoverColor: Colors.red,
             onTap: () {
               selectedPageNotifier.value = 0;
               Navigator.of(context).pushReplacement(MaterialPageRoute(

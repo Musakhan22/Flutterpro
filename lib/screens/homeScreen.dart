@@ -17,7 +17,7 @@ class _HomescreenState extends State<Homescreen> {
       padding: EdgeInsets.all(30.0),
       child: Column(
         children: [
-          HeroWidget(),
+          HeroWidget(title: 'Home'),
           Container(
             width: double.infinity,
             padding: EdgeInsets.symmetric(vertical: 10),

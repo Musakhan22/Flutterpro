@@ -15,7 +15,7 @@ class WidgetTree extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: const Text(
-            'FLUTTER UI',
+            'App',
           ),
           centerTitle: true,
           actions: [
