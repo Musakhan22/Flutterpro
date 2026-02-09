@@ -1,9 +1,11 @@
+import 'package:appplusidea/data/constants.dart';
 import 'package:appplusidea/data/notifiers.dart';
 import 'package:appplusidea/screens/homeScreen.dart';
 import 'package:appplusidea/screens/profileScreen.dart';
 import 'package:appplusidea/screens/settingsScreen.dart';
 import 'package:appplusidea/widget/NavBar_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 List<Widget> pages = [Homescreen(), Profilescreen()];
 
@@ -15,13 +17,16 @@ class WidgetTree extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: const Text(
-            'App',
+            'Pro',
           ),
-          centerTitle: true,
           actions: [
             IconButton(
-              onPressed: () {
+              onPressed: () async {
                 isDarkModeNotifier.value = !isDarkModeNotifier.value;
+                final SharedPreferences preferences =
+                    await SharedPreferences.getInstance();
+                preferences.setBool(
+                    KConstants.ThemeKey, isDarkModeNotifier.value);
               },
               icon: ValueListenableBuilder(
                 valueListenable: isDarkModeNotifier,

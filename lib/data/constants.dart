@@ -12,3 +12,7 @@ class KTextstyle {
     color: Colors.grey,
   );
 }
+
+class KConstants {
+  static const String ThemeKey = 'ThemeKey';
+}

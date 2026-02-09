@@ -1,8 +1,6 @@
-import 'dart:math';
-
 import 'package:appplusidea/screens/widget_tree.dart';
-import 'package:appplusidea/widget/Hero_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class Loginscreen extends StatefulWidget {
   const Loginscreen({super.key, required this.title});
@@ -55,16 +53,11 @@ class _LoginscreenState extends State<Loginscreen> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          padding: const EdgeInsets.all(10.0),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Padding(
-                padding: EdgeInsets.all(20.0),
-                child: HeroWidget(
-                  title: widget.title,
-                ),
-              ),
-              const SizedBox(height: 20),
+              Lottie.asset('asset/animations/Home.json'),
               TextField(
                 controller: Emailcontroller,
                 decoration: InputDecoration(
@@ -90,9 +83,9 @@ class _LoginscreenState extends State<Loginscreen> {
               const SizedBox(
                 height: 30,
               ),
-              ElevatedButton(
+              FilledButton(
                 onPressed: () => LoginFunction(),
-                style: ElevatedButton.styleFrom(
+                style: FilledButton.styleFrom(
                     minimumSize: const Size(double.infinity, 40)),
                 child: Text(widget.title),
               )
