@@ -1,5 +1,4 @@
 import 'package:appplusidea/screens/loginScreen.dart';
-import 'package:appplusidea/screens/widget_tree.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 

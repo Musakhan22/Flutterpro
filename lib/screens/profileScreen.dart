@@ -1,6 +1,5 @@
 import 'package:appplusidea/data/notifiers.dart';
 import 'package:appplusidea/screens/welcomeScreen.dart';
-import 'package:appplusidea/widget/Hero_widget.dart';
 import 'package:flutter/material.dart';
 
 class Profilescreen extends StatefulWidget {
