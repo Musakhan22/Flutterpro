@@ -1,6 +1,8 @@
 import 'package:appplusidea/data/constants.dart';
 import 'package:appplusidea/widget/Hero_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert' as convert;
 
 class Homescreen extends StatefulWidget {
   const Homescreen({super.key});
@@ -10,6 +12,21 @@ class Homescreen extends StatefulWidget {
 }
 
 class _HomescreenState extends State<Homescreen> {
+  @override
+  void initState() {
+    super.initState();
+    getData();
+  }
+
+  void getData() async {
+    var url = Uri.https('bored-api.appbewery.com', '/random');
+    var response = await http.get(url);
+    if (response.statusCode == 200) {
+      var jsonRes = convert.jsonDecode(response.body);
+      print('DATA:${jsonRes}');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
