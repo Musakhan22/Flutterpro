@@ -1,3 +1,4 @@
+import 'package:appplusidea/screens/coursePage.dart';
 import 'package:flutter/material.dart';
 
 class HeroWidget extends StatelessWidget {

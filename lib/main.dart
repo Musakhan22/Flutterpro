@@ -1,8 +1,9 @@
+import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 import 'package:appplusidea/data/constants.dart';
 import 'package:appplusidea/data/notifiers.dart';
 import 'package:appplusidea/screens/welcomeScreen.dart';
-import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,8 +17,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  // This widget is the root of your application.
-
   @override
   void initState() {
     Themeselector();

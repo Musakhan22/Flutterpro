@@ -1,4 +1,5 @@
 import 'package:appplusidea/data/constants.dart';
+import 'package:appplusidea/screens/coursePage.dart';
 import 'package:appplusidea/widget/Hero_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -31,13 +32,22 @@ class _HomescreenState extends State<Homescreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Padding(
-      padding: EdgeInsets.all(30.0),
+      padding: const EdgeInsets.all(30.0),
       child: Column(
         children: [
-          HeroWidget(title: 'Welcome'),
+          GestureDetector(
+              onTap: () => {
+                    print('PRESS'),
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Coursepage(),
+                        ))
+                  },
+              child: const HeroWidget(title: 'Welcome')),
           Container(
             width: double.infinity,
-            padding: EdgeInsets.symmetric(vertical: 10),
+            padding: const EdgeInsets.symmetric(vertical: 10),
             child: const Card(
               color: Color.fromARGB(255, 14, 59, 81),
               child: Padding(
