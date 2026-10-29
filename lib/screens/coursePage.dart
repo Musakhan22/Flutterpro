@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:appplusidea/data/activity_class.dart';
-import 'package:appplusidea/widget/Hero_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -13,6 +12,7 @@ class Coursepage extends StatefulWidget {
 }
 
 class _CoursepageState extends State<Coursepage> {
+  bool isFirst = true;
   @override
   void initState() {
     getData();
@@ -30,10 +30,26 @@ class _CoursepageState extends State<Coursepage> {
     }
   }
 
+  void FetchData() {
+    setState(() {
+      getData();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        actions: [
+          IconButton(
+              onPressed: () {
+                setState(() {
+                  isFirst = !isFirst;
+                });
+              },
+              icon: const Icon(Icons.switch_access_shortcut))
+        ],
+      ),
       body: FutureBuilder(
         future: getData(),
         builder: (context, snapshot) {
@@ -41,18 +57,40 @@ class _CoursepageState extends State<Coursepage> {
             return const Center(child: CircularProgressIndicator.adaptive());
           }
           if (snapshot.hasData) {
-            final activity = snapshot.data;
+            Activity activity = snapshot.data;
             return Padding(
-              padding: const EdgeInsets.all(10),
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    HeroWidget(title: 'Course'),
-                    Text(activity.activity)
-                  ],
-                ),
-              ),
-            );
+                padding: const EdgeInsets.all(10),
+                child: AnimatedCrossFade(
+                    firstChild: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          Text('Activity: ${activity.activity.toString()}'),
+                          const SizedBox(height: 10),
+                          Text(
+                              'Participants: ${activity.participants.toString()}'),
+                          Text('Price: ${activity.price.toString()}'),
+                          Text(
+                              'Availability: ${activity.availability.toString()}'),
+                          Text(
+                              'Accessibility: ${activity.accessibility.toString()}'),
+                          Text('Duration: ${activity.duration.toString()}'),
+                          Text(
+                              'kid-Friendly: ${activity.kidFriendly.toString()}'),
+                          const SizedBox(height: 10),
+                          TextButton(
+                            onPressed: () => FetchData(),
+                            child: const Text('Update Activity'),
+                          )
+                        ],
+                      ),
+                    ),
+                    secondChild: Center(
+                      child: Image.asset('./asset/images/bg-img.jpg'),
+                    ),
+                    crossFadeState: isFirst
+                        ? CrossFadeState.showFirst
+                        : CrossFadeState.showSecond,
+                    duration: const Duration(milliseconds: 2000)));
           } else {
             const Center(child: Text('ERROR'));
           }
